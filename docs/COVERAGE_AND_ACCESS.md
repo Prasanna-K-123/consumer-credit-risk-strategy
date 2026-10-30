@@ -61,9 +61,11 @@ Adding their names does not establish lifecycle loss forecasting or regulatory
 adequacy. Those questions require appropriately defined exposures, cash flows,
 loss outcomes, scenarios, estimation choices and validation evidence.
 
-## Reproduction and explanation
+## Reproduction and technical inspection
 
-The software can establish what was executed and checked. Applicant understanding
-requires demonstrating the code, calculations and decision reasoning. The
-[interview guide](INTERVIEW_GUIDE.md) provides practical exercises and explicit
-readiness criteria; it does not record a completed applicant assessment.
+The [technical walkthrough](INTERVIEW_GUIDE.md) connects the source populations,
+model roles, SQL queries and policy calculations to the reported findings. The
+[reproduction guide](REPRODUCE.md) documents the executed pipeline and its output
+contracts. These checks establish software accounting within the stated scope;
+they do not supply missing borrower histories, operational economics or
+regulatory validation.

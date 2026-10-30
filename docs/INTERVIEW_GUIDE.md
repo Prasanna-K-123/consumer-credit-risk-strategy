@@ -1,6 +1,9 @@
-# Explaining the project
+# Technical walkthrough: models, policies and reporting
 
-Use the code and output to answer these questions in your own words. Reproduce the study before treating any result as part of your project experience.
+This walkthrough connects the source populations, statistical design and
+decision outputs to the implementation. The [decision memo](../reports/DECISION_MEMO.md)
+summarizes the findings; the [reproduction guide](REPRODUCE.md) provides the
+commands and output contracts.
 
 ## The problem and the populations
 
@@ -16,7 +19,7 @@ Use the code and output to answer these questions in your own words. Reproduce t
 
 **Why four roles?** Training fits the base models; calibration fits a separate regularized logistic probability mapping; policy validation selects the stated decision threshold; test measures the frozen choices. Both models use the same population and predictor budget. Outputs and original choices remain preserved when a result is disappointing. The recorded calibration slopes are positive; the fitting algorithm does not impose a positive-slope constraint.
 
-**How does the scorecard work?** Training-only quantile bins receive smoothed weight-of-evidence values, which enter logistic regression. Follow the binning and unknown-value paths in the implementation. Explain how the transform is learned without using calibration, policy or test outcomes.
+**How does the scorecard work?** Training-only quantile bins receive smoothed weight-of-evidence values, which enter logistic regression. The binning and unknown-value paths in the implementation show how the transform is learned without using calibration, policy or test outcomes.
 
 **What does the challenger add?** Histogram gradient boosting can represent nonlinear response and interactions. More flexibility earns its place only through relevant evaluation; a small ranking gain alone does not establish lower loss or a superior operating policy.
 
@@ -81,7 +84,7 @@ bootstrap to CART or establish transport to future US borrowers.
 
 ## Independent software checks
 
-**What makes the SQL review useful?** Inspect the executable SQL population, confusion, calibration, segment and queue queries. Explain the join keys, uniqueness checks, window-function ordering and exact count reconciliation. A second metric implementation uses score groups to handle ranking ties and checks direct probability arithmetic.
+**What makes the SQL review useful?** Executable SQL population, confusion, calibration, segment and queue queries expose the join keys, uniqueness checks, window-function ordering and exact count reconciliation. A second metric implementation uses score groups to handle ranking ties and checks direct probability arithmetic.
 
 **What was strengthened in the historical replay?** Input contracts reject invalid probabilities before clipping, fractional labels, mismatched shapes and malformed identities. Integrity failures use explicit exceptions that remain effective under optimized Python. Protocol, source and result identities are checked rather than trusting a success label.
 
@@ -97,50 +100,43 @@ bootstrap to CART or establish transport to future US borrowers.
 
 **What would be required for a bank decision?** Appropriate independent borrower histories, known feature availability, mature outcomes, validation across time and relevant segments, grounded cost/capacity constraints, model governance, security and measured intervention effects. A research repository demonstrates methods and judgment without implying those approvals already exist.
 
-## A ninety-second explanation
+## Study in brief
 
-Practice this structure in your own words after completing the walkthrough:
+The project compares credit-risk models and allocates limited review capacity
+using 30,000 existing Taiwanese cardholders from 2005. It reports historical
+research rather than US lending performance.
 
-> The project asks how to compare credit-risk models and allocate limited review
-> capacity. The client study uses 30,000 existing Taiwanese cardholders from
-> 2005. I would describe its results as historical research, rather than US
-> lending performance.
->
-> The comparison uses a transparent WoE/logistic scorecard and a boosting
-> challenger. Duplicate model-input groups stay together, and training,
-> calibration, policy selection and evaluation have separate roles. The
-> challenger has higher AUC, but the scorecard has higher average precision.
-> Calibration worsens both models' test Brier scores, and the paired interval
-> does not establish an improvement in the assumed decision cost.
->
-> At 10% review capacity, the challenger's 600-client queue contains 33.4% of
-> observed defaults, with a 72% queue default rate. That describes concentration
-> and workload; it does not show that reviewing those clients prevents default.
->
-> A retrospective shallow CART benchmark makes segments inspectable. Cost-ratio
-> sensitivity shows how assumed missed-default costs can push review workload
-> up to the entire population.
->
-> Independent SQL reconciles the population, decisions and queue membership.
-> A separate official US bankcard market pack covers 56 quarters, with its own
-> denominators and source checks. Before a bank could use the client model, I
-> would require appropriate new borrower histories, temporal validation,
-> grounded costs and evidence about the intervention.
+The original comparison uses a transparent WoE/logistic scorecard and a boosting
+challenger. Duplicate model-input groups stay together, and training,
+calibration, policy selection and evaluation have separate roles. The challenger
+has higher AUC, while the scorecard has higher average precision. Calibration
+worsens both models' test Brier scores, and the paired interval does not establish
+an improvement in the assumed decision cost.
 
-Use the explanation as a sequence of ideas, rather than memorizing a script.
-If a detail is forgotten, locate its evidence and explain how it is calculated.
+At 10% review capacity, the challenger's 600-client queue contains 33.4% of
+observed defaults, with a 72% queue default rate. That describes concentration
+and workload; it does not show that reviewing those clients prevents default.
+A retrospective shallow CART benchmark makes segments inspectable. Cost-ratio
+sensitivity shows how assumed missed-default costs can push review workload up
+to the entire population.
 
-## Practical walkthrough
+Independent SQL reconciles the population, decisions and queue membership.
+A separate official US bankcard market pack covers 56 quarters, with its own
+denominators and source checks. Appropriate new borrower histories, temporal
+validation, grounded costs and intervention evidence would be needed before a
+bank could use the client model.
 
-The exercises below provide observable evidence of understanding. A completed
-repository or a successful automated test suite does not complete them for an
-applicant. Use a fresh output directory for every reproduction command.
+## Reproduction and inspection tasks
 
-| Exercise | Evidence to demonstrate |
+The tasks below trace reported findings to executable calculations. Use a fresh
+output directory for every reproduction command and preserve committed reference
+evidence when checking failure cases.
+
+| Task | Implementation and observable output |
 |---|---|
 | Reproduce the complete study | Run the root README commands; locate the new execution receipt, scientific replay, SQL evidence and market outputs. Explain what each stage actually executed. |
 | Trace one input row | Follow a source ID through the partition manifest and prediction output; explain the distinction between identity and model features. |
-| Explain leakage control | Locate `feature_groups` and `partition` in `consumer_cards/data.py`, then trace training-only WoE fitting in `consumer_cards/models.py`. Show why test outcomes cannot enter those fits. |
+| Trace leakage controls | Locate `feature_groups` and `partition` in `consumer_cards/data.py`, then trace training-only WoE fitting in `consumer_cards/models.py` and the data roles used by each fit. |
 | Recalculate a decision | Choose one model's frozen threshold, compute its confusion counts from predictions, and reconstruct `5 × missed defaults + nondefault clients flagged`. Explain the units. |
 | Challenge a headline | Explain why AUC 0.7897 versus 0.7814 does not settle policy selection. Locate average precision, raw/calibrated Brier and the paired cost interval. |
 | Inspect a queue | Reproduce the SQL ranking below; explain `ROW_NUMBER`, descending probability, deterministic ties and the floor rule. Reconcile the 600-client queue. |
@@ -150,8 +146,8 @@ applicant. Use a fresh output directory for every reproduction command.
 | Demonstrate failure handling | In temporary copies, introduce a duplicate source ID or invalid probability and show a validation failure. Preserve committed reference evidence. |
 | Read a market indicator | Trace a latest-quarter value back to its official source field, unit and denominator. Explain a stock/flow distinction and why missing is different from zero. |
 | Explain transport limits | State exactly what data are needed for US borrower-level, acquisition, temporal and intervention claims. |
-| Defend the bank-model conclusion | Use the separate bank-validation case audit to explain how pooled AUC 0.916 coexists with 9 of 10 later failures missed. Identify the subgroup as post hoc. |
-| Defend the customer-policy conclusion | Explain random assignment, development/evaluation separation, the comparator and the uncertainty interval. Identify assumed margins and contact costs. |
+| Compare a model-validation case | The separate [bank-validation case audit](https://github.com/Prasanna-K-123/credit-risk-model-validation/blob/main/reports/DECISION_MEMO.md) shows how pooled AUC 0.916 coexists with 9 of 10 later failures missed. The later subgroup is post hoc. |
+| Compare a customer-policy experiment | The separate [customer-policy study](https://github.com/Prasanna-K-123/causal-customer-decisions/blob/main/reports/DECISION_MEMO.md) documents random assignment, development/evaluation separation, a comparator and an uncertainty interval. Margins and contact costs are assumptions. |
 
 After running the SQL component, open its `card_review.sqlite` database with
 Python's built-in `sqlite3` module or a SQLite client. This query is intentionally
@@ -178,23 +174,12 @@ GROUP BY model;
 ```
 
 To obtain default capture, divide defaults reviewed by all 1,295 defaults in
-the evaluation population. Explain why queue default rate and default capture
-answer different questions. Explain why neither measures prevented defaults.
+the evaluation population. Queue default rate uses reviewed clients as its
+denominator, while capture uses all observed defaults. Neither measures
+prevented defaults.
 
-## Readiness rubric
-
-Assess the explanation through actual demonstrations, with notes about what
-worked and what still needs practice. No readiness result is asserted here.
-
-| Area | Evidence of readiness | Evidence that more practice is needed |
-|---|---|---|
-| Problem and scope | States population, target, decision and transfer limits accurately | Calls the Taiwan sample US lending data or the queue an approved lending policy |
-| Statistical design | Traces each data role and explains leakage, metrics and conditional uncertainty | Tunes on known evaluation outcomes or treats AUC as proof of savings |
-| Code and SQL | Navigates the implementation, reproduces a count and explains joins/ties | Can repeat reported numbers but cannot reconstruct them |
-| Business judgment | Connects workload and uncertainty to a restrained recommendation | Converts assumed costs into measured profit or mistakes concentration for treatment effect |
-| Communication | Gives a concise explanation, then supports follow-up questions with evidence | Relies on unexplained terminology or conceals a failed comparison |
-
-A useful stopping point is being able to complete every walkthrough task,
-explain each key decision without reading prepared answers, and handle a new
-follow-up about an assumption. Record uncertainty honestly and investigate it;
-the aim is sound reasoning, not a claim to know every possible fact.
+The executed checks establish source reconciliation, software accounting and
+reproduction within the documented scope. Interpretation still depends on the
+source population, data roles, units, uncertainty and operating assumptions;
+successful execution alone does not establish temporal transport or a beneficial
+intervention.

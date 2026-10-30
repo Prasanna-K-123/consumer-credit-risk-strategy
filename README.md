@@ -10,6 +10,7 @@ on 30,000 historical Taiwanese card customers. A separate market pack reconstruc
 56 quarters of official US large-bank card aggregates. These populations support
 different questions and remain separate throughout the analysis.
 
+[Interactive review](https://prasanna-k-123.github.io/financial-decision-lab/consumer-credit.html#review-strategy) ·
 [Decision memo](reports/DECISION_MEMO.md) ·
 [Research report](reports/RESEARCH_REPORT.md) ·
 [CART and policy sensitivity](reports/STRATEGY_REPORT.md) ·
