@@ -27,7 +27,7 @@ python tools/reproduce.py --cache work/fresh-cache --output work/fresh-results
 ```
 
 The output contains `reference/card_clients/replay`,
-`reference/card_clients/sql_review`, `reference/us_market`, `reports` and a final
+`reference/card_clients/sql_review`, `reference/card_strategy`, `reference/us_market`, `reports` and a final
 `execution_receipt.json`. SQLite databases can be queried locally and are not
 tracked in Git. The receipt records environment versions, current implementation
 and output hashes, actual source acquisition status, verification counts and
@@ -40,6 +40,12 @@ explicitly; numerical reproduction does not mean byte-identical model binaries.
 US deterministic economic outputs are compared byte-for-byte. Retrieval times
 remain provenance rather than economic results.
 
+Strategy reproduction also compares every published summary field and all
+prediction/scenario/leaf CSV cells, using exact identities/counts and absolute
+floating-point tolerance 1e-7 with zero relative tolerance. Tree paths and the
+recorded protocol must match byte-for-byte. Independent arithmetic and SQLite
+checks apply tighter within-run accounting tolerances.
+
 ## Individual components
 
 ```bash
@@ -49,6 +55,8 @@ python -m consumer_cards verify --output work/card-replay
 python -O -m consumer_cards verify --output work/card-replay
 python -m card_audit --predictions work/card-replay/holdout_predictions.csv --partition-manifest work/card-replay/partition_manifest.csv --summary work/card-replay/summary.json --queue-reference work/card-replay/decision_queue.csv --queue-assignments work/card-replay/queue_assignments.csv --output work/sql-review
 python -m us_card_market --output work/us-market
+python -m card_strategy --source .cache/uci_card_clients.xls --output work/card-strategy
+python tools/audit_strategy.py --evidence work/card-strategy --source .cache/uci_card_clients.xls --output work/card-strategy/independent_review.json
 ```
 
 `verify` checks executed artifacts; `replay` actually refits the historical
@@ -75,11 +83,14 @@ python -m pip install .
 python -m consumer_cards --help
 python -m us_card_market --help
 python -m card_audit --help
+python -m card_strategy --help
 ```
 
 Acquisition, scoring, market reporting and independent SQL queries include their
 runtime package resources. Historical replay/verification from outside the
 checkout needs `--historical /path/to/checkout/reference/card_clients/historical`.
+The strategy extension accepts the same explicit `--historical` path for use
+from an installed wheel outside the checkout.
 The full reproduction and report builders run from the source checkout.
 
 ## Reporting and continuous verification
@@ -87,6 +98,7 @@ The full reproduction and report builders run from the source checkout.
 ```bash
 python tools/build_report.py
 python tools/build_report.py --check
+python tools/build_strategy_report.py --check
 ```
 
 Reports are generated from committed executed evidence. `--check` rebuilds to

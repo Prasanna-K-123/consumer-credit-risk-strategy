@@ -1,0 +1,40 @@
+{
+  "executed_utc": "2026-10-30T13:21:32.015785+00:00",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "protocol_sha256": "a58409d59e8af06c798ea284ca29c8e72ded239622fb06a5765ef76626d60014",
+  "native_thread_limit": 2,
+  "execution": "Read the pinned XLS; refit fixed scorecard/boosting and fixed shallow CART on training rows only; fit separate calibration; select each cost threshold on policy rows; report every scenario on known historical evaluation rows",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "sklearn": "1.8.0"
+  },
+  "implementation_sha256": {
+    "card_strategy/__init__.py": "077111ed178d6286b53b889a27a1a6744fe35b8b022a1a2c4cad7e9bb69a6feb",
+    "card_strategy/__main__.py": "3652ff22399f5885e2e72728844a8983c2637d559e1b069c8a5645144d695818",
+    "card_strategy/analysis.py": "6102991f464c45f5c895f888e929a532e822486c95b1420ac47c49aa0257aeab",
+    "card_strategy/pipeline.py": "cce81d58fe0d8048f1e74415434e8918b0daed51b84b075a9ea0edff7d504378",
+    "consumer_cards/__init__.py": "42c2afc242281c94a4d915450a7a471a2a0de2fdf07e341dc3f8f43e4e34351b",
+    "consumer_cards/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "consumer_cards/cli.py": "fbf9b3481f4f97ae4d5dde0876309af2af0c25678d627a33bc57cd04d44134c1",
+    "consumer_cards/constants.py": "2d455fa4ee5575b2576599c1e0348f22b53fac05ada503f7ac68c2b66daeb5ca",
+    "consumer_cards/contracts.py": "aec43416664cb22103a218aa14cc1e496875bde03369c94ee0f89f9df73d4862",
+    "consumer_cards/data.py": "00b0b49e757b85c62e5dbab771ee52cfd8aa06ebf86c06052a6da1f53e3fd1d3",
+    "consumer_cards/evaluation.py": "4bd979153d4d0f0270a640d7194dff8d6472175b34f72c4d951a0fab3682ada8",
+    "consumer_cards/models.py": "ec46a834adc033a137153de275f4be3f114fbef9336a50324d28f2ac89699e08",
+    "consumer_cards/replay.py": "2048b98a61d2ce7c1ed7ebada3462a2dd57724cd0e8e5aed03946eabd72f9475",
+    "consumer_cards/runtime.py": "402363a5da6b98f702fa9c65c0a01a0786d0e781adc5bc8edbed2a7a08aadd43",
+    "consumer_cards/woe.py": "181cf4018e99ef43f33e4e01e60f942b3ec0e68bdcbfeab8d3ed5bac448a1299"
+  },
+  "file_sha256": {
+    "summary.json": "0c87d9249b05a1c86e9c2b023e02b0fcef2d2a78a563dc9971a8d1ee973c9e48",
+    "predictions.csv": "7c1e454da11033b8da8f6b07e53e226c5933b8fcde58d6323dd9626ed40ffdbc",
+    "policy_sensitivity.csv": "c33bbd9044da5c2850317631f7bef12c243dcc3dd425c43ff665d79d2c0842ec",
+    "capacity.csv": "2a49105dcbeef81eceb0bb6b1afe7759f37f2a7f29005ae895a8a3b2ee7a37c3",
+    "leaf_segments.csv": "87adf45d2d72807f396bb425ad4c68a9a4b7506d08fda92518170a09732b98d7",
+    "tree.txt": "634289bbfad51d20f740ed2527f8cf5fea2f331a0619e77c8b9fc1e9c68e4aa6",
+    "protocol.json": "ce00b60822592bb8e4288813542fbbaa3c65dc3cfdd4091cc93def1405eea077"
+  },
+  "scope": "Retrospective extension of a known Taiwan 2005 cohort. Training, calibration and policy-validation roles remain separate, but neither this CART benchmark nor its sensitivity results form a new untouched evaluation. Cost ratios are illustrative error units, not lending economics or measured intervention benefit. No cost ratio, capacity or winning model is selected using the reported evaluation outcomes. Python CART is not SAS or CHAID execution."
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "source_labels_reconciled": true,
+  "population_records": 30000,
+  "evaluation_records": 6001,
+  "policy_scenarios": 15,
+  "capacity_scenarios": 9,
+  "leaf_role_rows": 32,
+  "artifact_hashes": 7,
+  "scope": "Artifact identities and same-implementation accounting checks; separate independent review is required for a second implementation."
+}

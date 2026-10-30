@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "consumer-credit-risk-strategy"
-version = "1.0.0"
+version = "1.1.0"
 description = "Reproducible card-risk research, independent SQL controls and US bankcard market reporting"
 requires-python = ">=3.12"
 dependencies = [
@@ -17,11 +17,12 @@ report = ["matplotlib==3.10.8"]
 test = ["pytest==9.0.3"]
 
 [tool.setuptools.packages.find]
-include = ["consumer_cards*", "card_audit*", "us_card_market*"]
+include = ["consumer_cards*", "card_audit*", "card_strategy*", "us_card_market*"]
 
 [tool.setuptools.package-data]
 consumer_cards = ["resources/*.json"]
 card_audit = ["sql/*.sql"]
+card_strategy = ["PROTOCOL.json"]
 us_card_market = ["sql/*.sql", "data/*.json"]
 
 [tool.pytest.ini_options]

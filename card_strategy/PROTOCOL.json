@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "analysis": "Retrospective CART segmentation and policy-cost sensitivity on the already known UCI card cohort",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "historical_protocol_sha256": "7376e59998b3563fbddca17c4ab1cd9dde1e089118a62dcba42940aa126f1ce3",
+  "features": ["LIMIT_BAL", "AGE", "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6", "BILL_AMT1", "BILL_AMT2", "BILL_AMT3", "BILL_AMT4", "BILL_AMT5", "BILL_AMT6", "PAY_AMT1", "PAY_AMT2", "PAY_AMT3", "PAY_AMT4", "PAY_AMT5", "PAY_AMT6"],
+  "tree_parameters": {"criterion": "gini", "max_depth": 3, "min_samples_leaf": 200, "random_state": 20261030},
+  "calibration": "Separate regularized logistic mapping of clipped raw log odds; C=1.0, max_iter=2000, random_state=20261010; no constraint on slope",
+  "data_roles": ["train", "calibration", "policy_validation", "test"],
+  "baseline_models": ["scorecard", "challenger"],
+  "false_negative_cost_ratios": [1, 2, 5, 10, 20],
+  "false_positive_cost": 1,
+  "threshold_grid": {"first": 0.01, "last": 0.99, "step": 0.01},
+  "threshold_selection": "Minimize FN_ratio * false_negatives + false_positives on policy_validation; lowest threshold wins ties",
+  "constant_benchmarks": ["review_none", "review_all"],
+  "capacities": [0.05, 0.1, 0.2],
+  "capacity_ties": "Order probability descending, then original source_id ascending; floor(capacity * population)",
+  "reporting": "Report every declared model, ratio and capacity; no test-driven winner, hyperparameter or cost-ratio selection",
+  "scope": "This protocol is recorded after the original historical outcomes were public. Reusing their data roles does not create a new untouched holdout. Research error-cost units are not money, lending profit, intervention effects or regulatory compliance. CART is executed in Python, not SAS or CHAID."
+}

@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "review_implementation": "SQLite policy-threshold counts and capacity order; separate pair-count metrics and direct probability arithmetic; no imports from card_strategy",
+  "source_labels_and_rules_checked": true,
+  "source_labels_reconciled": true,
+  "population_records": 30000,
+  "evaluation_records": 6001,
+  "policy_scenarios": 15,
+  "capacity_scenarios": 9,
+  "leaf_role_rows": 32,
+  "independent_metrics": {
+    "scorecard": {
+      "calibrated": {
+        "rows": 6001,
+        "defaults": 1295,
+        "auc": 0.7814294410979494,
+        "average_precision": 0.5697151046221747,
+        "brier": 0.13079395689440546,
+        "log_loss": 0.42172319399808206
+      },
+      "raw": {
+        "rows": 6001,
+        "defaults": 1295,
+        "auc": 0.7814294410979494,
+        "average_precision": 0.5697151046221747,
+        "brier": 0.13048495103185923,
+        "log_loss": 0.420255090068372
+      }
+    },
+    "challenger": {
+      "calibrated": {
+        "rows": 6001,
+        "defaults": 1295,
+        "auc": 0.7896729222696074,
+        "average_precision": 0.5657803912599983,
+        "brier": 0.13004212680967125,
+        "log_loss": 0.4174707535331606
+      },
+      "raw": {
+        "rows": 6001,
+        "defaults": 1295,
+        "auc": 0.7896729222696074,
+        "average_precision": 0.5657803912599983,
+        "brier": 0.1295233639384988,
+        "log_loss": 0.41588560272791447
+      }
+    },
+    "cart": {
+      "calibrated": {
+        "rows": 6001,
+        "defaults": 1295,
+        "auc": 0.7444522477671649,
+        "average_precision": 0.5015843284481446,
+        "brier": 0.13268415321222946,
+        "log_loss": 0.42999937281592454
+      },
+      "raw": {
+        "rows": 6001,
+        "defaults": 1295,
+        "auc": 0.7444522477671649,
+        "average_precision": 0.5015843284481446,
+        "brier": 0.13226517475920777,
+        "log_loss": 0.4285977660201707
+      }
+    }
+  },
+  "input_sha256": {
+    "summary.json": "0c87d9249b05a1c86e9c2b023e02b0fcef2d2a78a563dc9971a8d1ee973c9e48",
+    "predictions.csv": "7c1e454da11033b8da8f6b07e53e226c5933b8fcde58d6323dd9626ed40ffdbc",
+    "policy_sensitivity.csv": "c33bbd9044da5c2850317631f7bef12c243dcc3dd425c43ff665d79d2c0842ec",
+    "capacity.csv": "2a49105dcbeef81eceb0bb6b1afe7759f37f2a7f29005ae895a8a3b2ee7a37c3",
+    "leaf_segments.csv": "87adf45d2d72807f396bb425ad4c68a9a4b7506d08fda92518170a09732b98d7",
+    "tree.txt": "634289bbfad51d20f740ed2527f8cf5fea2f331a0619e77c8b9fc1e9c68e4aa6",
+    "protocol.json": "ce00b60822592bb8e4288813542fbbaa3c65dc3cfdd4091cc93def1405eea077",
+    "receipt.json": "a93c6f5fef1af15e453ea69e2612e4d797a66130884a60039257a4294856560a",
+    "verification.json": "1b1a88945917ee1f3e75e7a3b163af36729d7f698e17795009b92fe0194dd956"
+  },
+  "review_code_sha256": "0775ae8de1b93b95a34f5ccf46c23fda3cb38296ad5df07fb9d5d08d56c7b0cc",
+  "historical_manifest_sha256": "aea19b791d08c1c2c987efe404a77d4564ccd3f64bf3583c10d2ab98031600e2",
+  "scope": "Independent software accounting of a retrospective known-cohort extension; not external institutional approval, a new unseen test, monetary benefit or applicant skill certification."
+}

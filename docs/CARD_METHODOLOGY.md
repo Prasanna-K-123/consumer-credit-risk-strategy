@@ -168,3 +168,24 @@ reviewable consumer-credit software, a reproducible historical comparison and
 clear separation of measured evidence from scenario assumptions. See
 [history and provenance](CARD_HISTORY.md) for the limits of the original
 protocol record.
+
+## Retrospective CART and cost sensitivity
+
+The separately recorded `card_strategy/PROTOCOL.json` fixes a depth-three Gini
+CART with a minimum of 200 training rows per leaf and seed 20261030. It uses the
+same 20 predictors and original data roles, a separate logistic calibrator and
+the same 0.01–0.99 policy-threshold grid. Five missed-default cost ratios
+(1, 2, 5, 10, 20), each against false-alarm cost 1, are all reported alongside
+review-all/review-none benchmarks. Exact threshold ties choose the lowest value.
+Three capacity scenarios use probability descending/source-ID ascending ordering.
+
+The tree is fitted only on training labels; calibration and threshold selection
+use their separate roles. Paths and support/default counts for every leaf and
+all four roles are exported. PAY status codes are split numerically. These
+controls do not erase prior knowledge of the historical evaluation outcomes.
+No new untouched experiment, SAS/CHAID execution, comparative significance or
+monetary operating benefit is claimed. The original scorecard/boosting protocol
+and its outputs remain unchanged.
+
+See the [generated strategy report](../reports/STRATEGY_REPORT.md) and
+[scope/access notes](COVERAGE_AND_ACCESS.md).

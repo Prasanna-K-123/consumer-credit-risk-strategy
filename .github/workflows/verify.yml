@@ -26,11 +26,13 @@ jobs:
       - name: Rebuild source, models, SQL controls and market reporting
         run: python tools/reproduce.py --output work/ci
       - name: Check published reports against their executed evidence
-        run: python tools/build_report.py --check
+        run: |
+          python tools/build_report.py --check
+          python tools/build_strategy_report.py --check
       - name: Verify integrity guards under optimized Python
         run: python -O -m consumer_cards verify --output work/ci/reference/card_clients/replay
       - name: Summarize verification without uploading artifacts
         run: |
           echo '### Consumer-credit evidence' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Source reconstruction, historical replay, independent SQL and report checks passed.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Source reconstruction, historical replay, independent SQL, CART/policy sensitivity and report checks passed.' >> "$GITHUB_STEP_SUMMARY"
           echo 'This workflow uses a standard public runner and uploads no artifacts or caches.' >> "$GITHUB_STEP_SUMMARY"

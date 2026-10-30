@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "executed_at_utc": "2026-10-30T11:34:22.842059+00:00",
-  "elapsed_seconds": 19.026,
+  "executed_at_utc": "2026-10-30T13:22:56.355904+00:00",
+  "elapsed_seconds": 24.83,
   "environment": {
     "python": "3.12.14",
     "numpy": "2.3.5",
@@ -28,6 +28,95 @@
     "status": "PASS",
     "controls": 6,
     "queue_assignments_compared": 84014
+  },
+  "strategy_extension": {
+    "status": "PASS",
+    "independent_review": {
+      "status": "PASS",
+      "review_implementation": "SQLite policy-threshold counts and capacity order; separate pair-count metrics and direct probability arithmetic; no imports from card_strategy",
+      "source_labels_and_rules_checked": true,
+      "source_labels_reconciled": true,
+      "population_records": 30000,
+      "evaluation_records": 6001,
+      "policy_scenarios": 15,
+      "capacity_scenarios": 9,
+      "leaf_role_rows": 32,
+      "independent_metrics": {
+        "scorecard": {
+          "calibrated": {
+            "rows": 6001,
+            "defaults": 1295,
+            "auc": 0.7814294410979494,
+            "average_precision": 0.5697151046221747,
+            "brier": 0.13079395689440546,
+            "log_loss": 0.42172319399808206
+          },
+          "raw": {
+            "rows": 6001,
+            "defaults": 1295,
+            "auc": 0.7814294410979494,
+            "average_precision": 0.5697151046221747,
+            "brier": 0.13048495103185923,
+            "log_loss": 0.420255090068372
+          }
+        },
+        "challenger": {
+          "calibrated": {
+            "rows": 6001,
+            "defaults": 1295,
+            "auc": 0.7896729222696074,
+            "average_precision": 0.5657803912599983,
+            "brier": 0.13004212680967125,
+            "log_loss": 0.4174707535331606
+          },
+          "raw": {
+            "rows": 6001,
+            "defaults": 1295,
+            "auc": 0.7896729222696074,
+            "average_precision": 0.5657803912599983,
+            "brier": 0.1295233639384988,
+            "log_loss": 0.41588560272791447
+          }
+        },
+        "cart": {
+          "calibrated": {
+            "rows": 6001,
+            "defaults": 1295,
+            "auc": 0.7444522477671649,
+            "average_precision": 0.5015843284481446,
+            "brier": 0.13268415321222946,
+            "log_loss": 0.42999937281592454
+          },
+          "raw": {
+            "rows": 6001,
+            "defaults": 1295,
+            "auc": 0.7444522477671649,
+            "average_precision": 0.5015843284481446,
+            "brier": 0.13226517475920777,
+            "log_loss": 0.4285977660201707
+          }
+        }
+      },
+      "input_sha256": {
+        "summary.json": "0c87d9249b05a1c86e9c2b023e02b0fcef2d2a78a563dc9971a8d1ee973c9e48",
+        "predictions.csv": "7c1e454da11033b8da8f6b07e53e226c5933b8fcde58d6323dd9626ed40ffdbc",
+        "policy_sensitivity.csv": "c33bbd9044da5c2850317631f7bef12c243dcc3dd425c43ff665d79d2c0842ec",
+        "capacity.csv": "2a49105dcbeef81eceb0bb6b1afe7759f37f2a7f29005ae895a8a3b2ee7a37c3",
+        "leaf_segments.csv": "87adf45d2d72807f396bb425ad4c68a9a4b7506d08fda92518170a09732b98d7",
+        "tree.txt": "634289bbfad51d20f740ed2527f8cf5fea2f331a0619e77c8b9fc1e9c68e4aa6",
+        "protocol.json": "ce00b60822592bb8e4288813542fbbaa3c65dc3cfdd4091cc93def1405eea077",
+        "receipt.json": "13b28d1eb7223dfcbc2d8398ff41351c42a63bbc17c4921481297f9e2386c7cb",
+        "verification.json": "1b1a88945917ee1f3e75e7a3b163af36729d7f698e17795009b92fe0194dd956"
+      },
+      "review_code_sha256": "0775ae8de1b93b95a34f5ccf46c23fda3cb38296ad5df07fb9d5d08d56c7b0cc",
+      "historical_manifest_sha256": "aea19b791d08c1c2c987efe404a77d4564ccd3f64bf3583c10d2ab98031600e2",
+      "scope": "Independent software accounting of a retrospective known-cohort extension; not external institutional approval, a new unseen test, monetary benefit or applicant skill certification."
+    },
+    "published_summary_fields_compared": 61,
+    "published_csv_cells_compared": 330667,
+    "published_float_absolute_tolerance": 1e-07,
+    "exact_integer_and_identity_checks": true,
+    "scope": "Retrospective CART segmentation and five assumed error-cost ratios on the known historical cohort; no fresh test or monetary benefit claim."
   },
   "us_market": {
     "coverage": {
@@ -69,6 +158,11 @@
     "card_audit/sql/queues.sql": "d84c1b1c7c726b778c070ec0e7d3eaf592e59e4d1332d460ef4f550f6e7597ff",
     "card_audit/sql/ranking.sql": "3ebaf084f8f7b93914be1837abbb96c2c3290a93f0a4086a47b263aa655e2627",
     "card_audit/sql/segments.sql": "4d3d5ff2b6f9bb0b265d5231ad437e934ee37e24e41a11167e1cdd3ec83f1551",
+    "card_strategy/PROTOCOL.json": "a58409d59e8af06c798ea284ca29c8e72ded239622fb06a5765ef76626d60014",
+    "card_strategy/__init__.py": "077111ed178d6286b53b889a27a1a6744fe35b8b022a1a2c4cad7e9bb69a6feb",
+    "card_strategy/__main__.py": "3652ff22399f5885e2e72728844a8983c2637d559e1b069c8a5645144d695818",
+    "card_strategy/analysis.py": "6102991f464c45f5c895f888e929a532e822486c95b1420ac47c49aa0257aeab",
+    "card_strategy/pipeline.py": "cce81d58fe0d8048f1e74415434e8918b0daed51b84b075a9ea0edff7d504378",
     "us_card_market/__init__.py": "c3f8b200f493c097c85cdd6b1e387ee8c8a6384263b45da633b693fba717c317",
     "us_card_market/__main__.py": "90ef8bdb91f18cf72d91801388669a6cf692cd8ceea89a7cb7305a5e83b39a68",
     "us_card_market/data/source_manifest.json": "9f6315d1d4ecd13892f0eb4b01ca28d045a8e9c33bb858cfe8f7a542890f6748",
@@ -78,8 +172,10 @@
     "us_card_market/sql/quarterly_measures.sql": "7534bb05c245a0d58ac645a1f2b7b2fa71050509316ec1f1d245384db07a416d",
     "us_card_market/sql/reconciliations.sql": "b0026ce638752b065bebc79912594a9534159afb15d770027245b5ac4e5581ce",
     "us_card_market/sql/risk_report.sql": "91f79ccde188f598cc9bba8a51512b15adb7b326181a8d9e7689573a959cf6dc",
+    "tools/audit_strategy.py": "0775ae8de1b93b95a34f5ccf46c23fda3cb38296ad5df07fb9d5d08d56c7b0cc",
     "tools/build_report.py": "c2cf19679f129b4eebde57701c69c7c20129f0303ddf6ec5d3a859df6e4a6242",
-    "tools/reproduce.py": "7520ff40cdbaf7414d88cb3ed4256b193674733a341804ae62cfa5369a016093"
+    "tools/build_strategy_report.py": "a2e29b37d995696165d2808807617869b02c790353219af1c79bd2c6749b6120",
+    "tools/reproduce.py": "f268d1b068b3ba04e80ec40e62e6aa4c54ac02d8d55e32f24dfc301927230b5c"
   },
   "output_sha256": {
     "reference/card_clients/replay/calibration_bins.csv": "fc032fd24968a4ae268bbec332ec3fc963981b947c5963f949cfbaf07007b4e8",
@@ -89,7 +185,7 @@
     "reference/card_clients/replay/partition_manifest.csv": "aea19b791d08c1c2c987efe404a77d4564ccd3f64bf3583c10d2ab98031600e2",
     "reference/card_clients/replay/queue_assignments.csv": "e4e84de786ea1c3b571840acee23197824a2fcb7dcff62444cfe8e2dc06b58f7",
     "reference/card_clients/replay/queue_receipt.json": "684b8c26d2edd52fa249bc2d9b168d24bf78fc5a0900e2025648e192375e0fc4",
-    "reference/card_clients/replay/replay_receipt.json": "80fa346247d06ca39d829f54548bb7bf4af99781058cf44f922adf7100d9333c",
+    "reference/card_clients/replay/replay_receipt.json": "b159d0de221e71cf3e59039d0f22ab8b07d4790bcf24c9becd7da7698d4fd681",
     "reference/card_clients/replay/source_audit.json": "57efa030cd7e99252789452a2867e053cc7e84f053dcdc79bda7a843a8c19c02",
     "reference/card_clients/replay/summary.json": "1e09b502b89f65464cd97d95965f2f519c11233ac0d86c5d9ac873f61924c7c7",
     "reference/card_clients/replay/verification.json": "1df8966a112e7cf4426a59c2c6a885db1aea4d665c382293098a052d2bd1b488",
@@ -100,6 +196,16 @@
     "reference/card_clients/sql_review/population.csv": "494269c94f81a2e9bdbdfdefe444e0686739a6ff06f1197c40e35c43b2ea344a",
     "reference/card_clients/sql_review/review.json": "af532a998bd179912032d465b9c36206a1d64059e8dc871b6b836faf1e08aedf",
     "reference/card_clients/sql_review/segments.csv": "26c1a813c27c81eed36617d792e82ceb570519239df04d615fc29701b517cb6c",
+    "reference/card_strategy/capacity.csv": "2a49105dcbeef81eceb0bb6b1afe7759f37f2a7f29005ae895a8a3b2ee7a37c3",
+    "reference/card_strategy/independent_review.json": "712e19bd5bda04f3a3ebac2f4febb9143b6a03efacdbf4c6a63e1b893ddb5263",
+    "reference/card_strategy/leaf_segments.csv": "87adf45d2d72807f396bb425ad4c68a9a4b7506d08fda92518170a09732b98d7",
+    "reference/card_strategy/policy_sensitivity.csv": "c33bbd9044da5c2850317631f7bef12c243dcc3dd425c43ff665d79d2c0842ec",
+    "reference/card_strategy/predictions.csv": "7c1e454da11033b8da8f6b07e53e226c5933b8fcde58d6323dd9626ed40ffdbc",
+    "reference/card_strategy/protocol.json": "ce00b60822592bb8e4288813542fbbaa3c65dc3cfdd4091cc93def1405eea077",
+    "reference/card_strategy/receipt.json": "13b28d1eb7223dfcbc2d8398ff41351c42a63bbc17c4921481297f9e2386c7cb",
+    "reference/card_strategy/summary.json": "0c87d9249b05a1c86e9c2b023e02b0fcef2d2a78a563dc9971a8d1ee973c9e48",
+    "reference/card_strategy/tree.txt": "634289bbfad51d20f740ed2527f8cf5fea2f331a0619e77c8b9fc1e9c68e4aa6",
+    "reference/card_strategy/verification.json": "1b1a88945917ee1f3e75e7a3b163af36729d7f698e17795009b92fe0194dd956",
     "reference/us_market/DATA_TERMS.txt": "5dd6b5c190f56e58514fd8afd8ae75b41e700b7a05763066d60f08008662bdb8",
     "reference/us_market/market.sqlite": "0dc08d8fc02f06a10d0b6d1dccf472cbde90f1118d9c68304b3a0f0eb624eaee",
     "reference/us_market/metric_dictionary.json": "4b4e7fc5e774c7e673b939a79ccd5327a3d8f8fb2128a278b9cf82c0a2b7d679",
@@ -111,17 +217,20 @@
     "reference/us_market/sources.json": "2930512ad06b8c1df268812c151b77ee80698eab8f829d03682afff7063c93b2",
     "reports/DECISION_MEMO.md": "a1eb3547b51b00dd5a8342e0ce2aac2f4c6f0ae00fd913d1bd1799bbccbd3ca2",
     "reports/RESEARCH_REPORT.md": "f5806915ca67ec4b8ba1d899ba40ea65b987ee7d1f20ae210e830efa0644b571",
+    "reports/STRATEGY_REPORT.md": "7fdd3a6f1cb3694e757e483cc5fbd1a3568da8cbfff6614745536363eb827587",
     "reports/figures/calibration.png": "737d2e39537275ecadec9c7c8c708c407e2bd7d86e5a7ff934b21e5aa5fdfced",
     "reports/figures/model_comparison.png": "1937d40be9398facdd0b27de40efe020a95b53a0e92236ebfc9ec29319d36ae3",
     "reports/figures/origination_mix.png": "a89975cc1db72eda537d359fc6ad49c3135220531928a40cedf70d7450b411b5",
+    "reports/figures/policy_sensitivity.png": "0a95a06f31504d8de28de60fd7f8665c8f7e51e1f8da508f5a3d4ae410689e72",
     "reports/figures/review_capacity.png": "c0c5efc10ecb4428d881c00082b2d9548a4da3c2b4af30c346d0bf74757d7b5a",
     "reports/figures/us_card_market.png": "a9c221359f3feb4a13214e23441989f55b9fed5569b55ec5c1c3b724d0570152"
   },
-  "scope": "Executed source acquisition or hash-verified cache, historical fixed model refits, calibration, policy evaluation, bootstrap, independent SQL and market-source reconstruction. No new unseen test or regulatory approval is implied.",
+  "scope": "Executed source acquisition or hash-verified cache, historical fixed model refits, calibration, policy evaluation, bootstrap, independent SQL, retrospective tree/policy sensitivity and market-source reconstruction. No new unseen test or regulatory approval is implied.",
   "validation": {
-    "unit_tests": 167,
+    "unit_tests": 214,
     "subtests": 24,
-    "package_smoke": "Wheel installed outside checkout; source acquisition, US reporting, independent SQL and three synthetic scoring profiles executed; scorecard probability decomposition reconciled to 1e-10.",
-    "fresh_cache_replay_seconds": 36.833
+    "package_smoke": "Version 1.1 wheel installed outside checkout; complete strategy run with explicit historical path passed.",
+    "optimized_historical_integrity": "PASS",
+    "reports_current": "PASS"
   }
 }
