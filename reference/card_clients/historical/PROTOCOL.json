@@ -1,0 +1,23 @@
+{
+  "frozen_at": "2026-10-10T02:59:08.755108+00:00",
+  "source": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+  "xls_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "n": 30000,
+  "seed": 20261010,
+  "split": "Model-input duplicate groups: 60% train, 10% calibrate, 10% policy validation, 20% test; group split proportions mean row counts may differ. Same partitions/features for both models.",
+  "excluded_features": [
+    "ID",
+    "SEX",
+    "EDUCATION",
+    "MARRIAGE"
+  ],
+  "models": {
+    "scorecard": "Train-only WoE five-quantile bins + logistic C1",
+    "challenger": "HistGradientBoosting max_iter200, max_leaf_nodes31, learning_rate0.05, l2_regularization10, early_stoppingFalse"
+  },
+  "calibration": "Separate calibration partition: regularized logistic regression on clipped log odds, both models",
+  "threshold": "Each calibrated model: minimum validation cost on fixed .01..99 grid, false negative5 / false positive1. Not actual money. No test threshold selection.",
+  "bootstrap": "2000 paired draws of test model-input groups, retain all rows of each sampled group, including label-discordant duplicate feature vectors. Fixed-model uncertainty only.",
+  "audit": "SEX1/2 and age under30/30to49/50plus; group differences not discrimination finding or fairness certification.",
+  "scope": "Single Taiwan2005 cohort; monthly predictors precede next-month label, but random client-group holdout NOT out-of-time or multiyear generalization. Existing-client selection; no observed LGD/EAD or IFRS9 compliance."
+}

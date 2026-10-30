@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "scientific_summary_fields_compared": 87,
+  "csv_cells_compared": 132267,
+  "absolute_tolerance": 1e-07,
+  "relative_tolerance": 0,
+  "exact_integer_and_identity_checks": true,
+  "historical_file_hashes_verified": 10,
+  "scope": "All historical scientific summary fields, calibration parameters, paired confidence intervals and prediction/group/calibration CSV cells; exact immutable references; receipt binds source/category audit and new queue artifacts. This comparison itself does not refit models."
+}

@@ -1,0 +1,4 @@
+{
+  "elapsed_seconds": 10.257792623999876,
+  "cpu_thread_budget": "OMP_NUM_THREADS=2; OPENBLAS_NUM_THREADS=2"
+}

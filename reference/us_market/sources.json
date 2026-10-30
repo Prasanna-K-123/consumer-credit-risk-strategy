@@ -1,0 +1,43 @@
+{
+  "release": "2026Q2",
+  "source_published_on": "2026-10-07",
+  "manifest_verified_on": "2026-10-30",
+  "source_page": "https://www.philadelphiafed.org/surveys-and-data/large-bank-credit-card-and-mortgage-data",
+  "methodology_page": "https://www.philadelphiafed.org/surveys-and-data/y14-methodology",
+  "definitions_page": "https://www.philadelphiafed.org/surveys-and-data/y14-definitions",
+  "terms_page": "https://www.philadelphiafed.org/about-us/privacy-notice",
+  "usage": "Informational, educational and research use under the source website terms. Source data are not relicensed under the software license. Raw downloads remain in a local ignored cache.",
+  "historical_series_status": "Published aggregate history in the pinned 2026Q2 source files, retrieved in October 2026. Previously reported periods may have been revised; this is not an original-vintage database.",
+  "sources": {
+    "balances": {
+      "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/Y14/2026/Q2/26Q2-CreditCardBalances.csv",
+      "sha256": "5a272e62830af7c7e8166492cc7914e5e87c7b653321eec29a911fd08a5eb047",
+      "bytes": 20966,
+      "first_quarter": "2012Q3",
+      "last_quarter": "2026Q2",
+      "quarters": 56
+    },
+    "originations": {
+      "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/Y14/2026/Q2/26Q2-CreditCardOriginations.csv",
+      "sha256": "e2e7cc7ed21ebd830b17cd7ee007911cd4fca6f748068b67b8460c4f59d63da6",
+      "bytes": 9739,
+      "first_quarter": "2012Q3",
+      "last_quarter": "2026Q2",
+      "quarters": 56
+    }
+  },
+  "downloads": {
+    "balances": {
+      "retrieved_at_utc": "2026-10-30T11:13:39+00:00",
+      "source_url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/Y14/2026/Q2/26Q2-CreditCardBalances.csv",
+      "sha256": "5a272e62830af7c7e8166492cc7914e5e87c7b653321eec29a911fd08a5eb047",
+      "bytes": 20966
+    },
+    "originations": {
+      "retrieved_at_utc": "2026-10-30T11:13:46+00:00",
+      "source_url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/Y14/2026/Q2/26Q2-CreditCardOriginations.csv",
+      "sha256": "e2e7cc7ed21ebd830b17cd7ee007911cd4fca6f748068b67b8460c4f59d63da6",
+      "bytes": 9739
+    }
+  }
+}

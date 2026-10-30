@@ -1,0 +1,502 @@
+[
+  {
+    "dataset": "balances",
+    "key": "balances_bn",
+    "header": "Total Balances ($Billions)",
+    "unit": "USD billions",
+    "style": "currency",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarter-end stock",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "accounts_mn",
+    "header": "Number of Accounts (Millions)",
+    "unit": "million accounts",
+    "style": "number",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarter-end stock",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "commitments_bn",
+    "header": "Total Commitments ($Billions)",
+    "unit": "USD billions",
+    "style": "currency",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarter-end stock",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "active_balance_p50_usd",
+    "header": "Account Balance (Active Accounts Only) (50th percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "active consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "active_balance_p75_usd",
+    "header": "Account Balance (Active Accounts Only) (75th percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "active consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "active_balance_p90_usd",
+    "header": "Account Balance (Active Accounts Only) (90th percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "active consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "limit_p50_usd",
+    "header": "Current Credit Limit (50th Percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "limit_p75_usd",
+    "header": "Current Credit Limit (75th Percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "limit_p90_usd",
+    "header": "Current Credit Limit (90th Percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "score_p10",
+    "header": "Current Credit Score (10th percentile)",
+    "unit": "credit score",
+    "style": "number",
+    "population": "accounts with eligible current credit score",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "score_p25",
+    "header": "Current Credit Score (25th percentile)",
+    "unit": "credit score",
+    "style": "number",
+    "population": "accounts with eligible current credit score",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "score_p50",
+    "header": "Current Credit Score (50th percentile)",
+    "unit": "credit score",
+    "style": "number",
+    "population": "accounts with eligible current credit score",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "active_utilization_p50_pct",
+    "header": "Utilization (Active Accounts Only) (50th percentile)",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "active_utilization_p75_pct",
+    "header": "Utilization (Active Accounts Only) (75th percentile)",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "active_utilization_p90_pct",
+    "header": "Utilization (Active Accounts Only) (90th percentile)",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "line_decrease_pct",
+    "header": "Percentage of Accounts with Credit Line Decrease",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarterly account share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "line_increase_pct",
+    "header": "Percentage of Accounts with Credit Line Increase",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarterly account share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "dpd30_accounts_pct",
+    "header": "30+ Days Past Due Rates: Accounts Based",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "cumulative 30+ days past due accounts share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "dpd30_balances_pct",
+    "header": "30+ Days Past Due Rates: Balances Based",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "cumulative 30+ days past due balances share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "dpd60_accounts_pct",
+    "header": "60+ Days Past Due Rates: Accounts Based",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "cumulative 60+ days past due accounts share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "dpd60_balances_pct",
+    "header": "60+ Days Past Due Rates: Balances Based",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "cumulative 60+ days past due balances share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "dpd90_accounts_pct",
+    "header": "90+ Days Past Due Rates: Accounts Based",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "cumulative 90+ days past due accounts share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "dpd90_balances_pct",
+    "header": "90+ Days Past Due Rates: Balances Based",
+    "unit": "percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "cumulative 90+ days past due balances share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "minimum_payment_pct",
+    "header": "Share of Accounts Making the Minimum Payment",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "last month of quarter account share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "partial_payment_pct",
+    "header": "Share of Accounts Making Greater Than the Minimum Payment but Less Than the Full Balance",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "last month of quarter account share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "full_payment_pct",
+    "header": "Share of Accounts Making the Full Balance Payment",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "last month of quarter account share",
+    "is_share": true
+  },
+  {
+    "dataset": "balances",
+    "key": "revolving_balances_bn",
+    "header": "Revolving Balances Only ($Billions)",
+    "unit": "USD billions",
+    "style": "currency",
+    "population": "accounts revolving some or all of prior cycle balance",
+    "aggregation": "quarter-end stock",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "nco_annualized_pct",
+    "header": "Net Charge-Off Rate",
+    "unit": "annualized percent",
+    "style": "percent",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarterly flow divided by three-month average balances, annualized",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "purchase_apr_general_pct",
+    "header": "Average Purchase APR: General Purpose",
+    "unit": "annual percent",
+    "style": "percent",
+    "population": "active general-purpose accounts with eligible non-promotional APR",
+    "aggregation": "account average at quarter end",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "purchase_apr_private_pct",
+    "header": "Average Purchase APR: Private Label",
+    "unit": "annual percent",
+    "style": "percent",
+    "population": "active private-label accounts with eligible non-promotional APR",
+    "aggregation": "account average at quarter end",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "purchase_volume_bn",
+    "header": "Total Purchase Volume ($Billions)",
+    "unit": "USD billions",
+    "style": "currency",
+    "population": "open non-charged-off consumer bankcards",
+    "aggregation": "quarterly net-purchase flow",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "purchase_avg_sub660_usd",
+    "header": "Average Purchase Volume by Credit Score Group: < 660 Credit Score",
+    "unit": "USD per active account",
+    "style": "currency",
+    "population": "active consumer bankcards with current credit score < 660",
+    "aggregation": "quarterly net-purchase average",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "purchase_avg_660_719_usd",
+    "header": "Average Purchase Volume by Credit Score Group: 660-719 Credit Score",
+    "unit": "USD per active account",
+    "style": "currency",
+    "population": "active consumer bankcards with current credit score 660-719",
+    "aggregation": "quarterly net-purchase average",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "purchase_avg_ge720_usd",
+    "header": "Average Purchase Volume by Credit Score Group: >= 720 Credit Score",
+    "unit": "USD per active account",
+    "style": "currency",
+    "population": "active consumer bankcards with current credit score >= 720",
+    "aggregation": "quarterly net-purchase average",
+    "is_share": false
+  },
+  {
+    "dataset": "balances",
+    "key": "promotional_apr_pct",
+    "header": "Percentage of Accounts Subject to Promotional APR: Percentage APR Accounts",
+    "unit": "percent",
+    "style": "percent",
+    "population": "active consumer bankcards",
+    "aggregation": "quarter-end account share",
+    "is_share": true
+  },
+  {
+    "dataset": "originations",
+    "key": "new_commitments_bn",
+    "header": "New Originations ($Billions)",
+    "unit": "USD billions",
+    "style": "currency",
+    "population": "new consumer bankcard accounts",
+    "aggregation": "quarterly initial-credit-limit flow",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_accounts_mn",
+    "header": "Number of New Accounts (Millions)",
+    "unit": "million accounts",
+    "style": "number",
+    "population": "new consumer bankcard accounts",
+    "aggregation": "quarterly count",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_limit_p50_usd",
+    "header": "Original Credit Limit (50th percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "new consumer bankcard accounts",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_limit_p75_usd",
+    "header": "Original Credit Limit (75th percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "new consumer bankcard accounts",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_limit_p90_usd",
+    "header": "Original Credit Limit (90th percentile)",
+    "unit": "USD",
+    "style": "currency",
+    "population": "new consumer bankcard accounts",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_score_p10",
+    "header": "Original Credit Score (10th percentile)",
+    "unit": "credit score",
+    "style": "number",
+    "population": "new accounts with eligible origination credit score",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_score_p25",
+    "header": "Original Credit Score (25th percentile)",
+    "unit": "credit score",
+    "style": "number",
+    "population": "new accounts with eligible origination credit score",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_score_p50",
+    "header": "Original Credit Score (50th percentile)",
+    "unit": "credit score",
+    "style": "number",
+    "population": "new accounts with eligible origination credit score",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_apr_general_pct",
+    "header": "Average Original Purchase APR: General Purpose",
+    "unit": "annual percent",
+    "style": "percent",
+    "population": "new general-purpose bankcard accounts",
+    "aggregation": "account average",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_apr_private_pct",
+    "header": "Average Original Purchase APR: Private Label",
+    "unit": "annual percent",
+    "style": "percent",
+    "population": "new private-label bankcard accounts",
+    "aggregation": "account average",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_limit_p50_sub660_usd",
+    "header": "Median Original Credit Limit by Credit Score Group: < 660 Credit Score",
+    "unit": "USD",
+    "style": "currency",
+    "population": "new consumer bankcards with original credit score < 660",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_limit_p50_660_719_usd",
+    "header": "Median Original Credit Limit by Credit Score Group: 660-719 Credit Score",
+    "unit": "USD",
+    "style": "currency",
+    "population": "new consumer bankcards with original credit score 660-719",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_limit_p50_ge720_usd",
+    "header": "Median Original Credit Limit by Credit Score Group: >= 720 Credit Score",
+    "unit": "USD",
+    "style": "currency",
+    "population": "new consumer bankcards with original credit score >= 720",
+    "aggregation": "account percentile",
+    "is_share": false
+  },
+  {
+    "dataset": "originations",
+    "key": "new_sub660_accounts_pct",
+    "header": "Percentage of New Accounts with < 660 Credit Score",
+    "unit": "percent",
+    "style": "percent",
+    "population": "new consumer bankcard accounts",
+    "aggregation": "quarterly account share",
+    "is_share": true
+  },
+  {
+    "dataset": "originations",
+    "key": "new_sub660_commitments_pct",
+    "header": "Percentage of New Commitments with < 660 Credit Score",
+    "unit": "percent",
+    "style": "percent",
+    "population": "new consumer bankcard commitments",
+    "aggregation": "quarterly commitment share",
+    "is_share": true
+  }
+]

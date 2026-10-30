@@ -1,0 +1,36 @@
+name: Verify consumer-credit evidence
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Check contracts and independent calculations
+        run: python -m pytest -q
+      - name: Rebuild source, models, SQL controls and market reporting
+        run: python tools/reproduce.py --output work/ci
+      - name: Check published reports against their executed evidence
+        run: python tools/build_report.py --check
+      - name: Verify integrity guards under optimized Python
+        run: python -O -m consumer_cards verify --output work/ci/reference/card_clients/replay
+      - name: Summarize verification without uploading artifacts
+        run: |
+          echo '### Consumer-credit evidence' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Source reconstruction, historical replay, independent SQL and report checks passed.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This workflow uses a standard public runner and uploads no artifacts or caches.' >> "$GITHUB_STEP_SUMMARY"

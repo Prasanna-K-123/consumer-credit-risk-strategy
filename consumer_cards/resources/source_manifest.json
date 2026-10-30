@@ -1,0 +1,34 @@
+{
+  "dataset": "Default of Credit Card Clients",
+  "creator": "I-Cheng Yeh",
+  "source_page": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+  "download_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+  "doi": "10.24432/C55S3H",
+  "data_license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_xls_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "rows": 30000,
+  "columns_including_id_and_target": 25,
+  "model_predictors": 20,
+  "source_population": "Existing Taiwan credit-card clients observed in a single 2005 cohort",
+  "source_note": "April-September payment/bill history precedes next-month default label; no independent lending vintages or observed intervention outcomes",
+  "raw_source_redistribution": false,
+  "derived_artifacts_attribution": "Derived partition and historical prediction artifacts retain UCI attribution and CC BY 4.0 source terms; original code retains its MIT notice",
+  "historical_study": {
+    "recorded_protocol_time": "2026-10-10T02:59:08.755108+00:00",
+    "protocol_sha256": "7376e59998b3563fbddca17c4ab1cd9dde1e089118a62dcba42940aa126f1ce3",
+    "first_source_protocol_results_commit": "f4bb37d2d51625f2fc76c38504072211850c7f83",
+    "first_commit_time": "2026-10-10T03:34:55Z",
+    "preregistration_limit": "Protocol, implementation and results first appear together in Git; a separate pre-outcome protocol commit is not established",
+    "original_implementation_sha256": "900d940fb663e4c103c0dbef0bf61a4294d617742741d060f46ed2179c0c792a",
+    "original_woe_sha256": "c575e161e4f2e9ded98f0e14cda395413193438934f0c238cc4a00a805ab8aac",
+    "retained_reference_directory": "reference/card_clients/historical"
+  },
+  "replay_policy": {
+    "scientific_design": "Preserve original fixed models, duplicate-group partitions, calibration and validation-selected thresholds",
+    "numeric_absolute_tolerance": 1e-7,
+    "numeric_relative_tolerance": 0,
+    "exact_checks": "Source/protocol/reference bytes, row/group identities, partition membership, integer counts and artifact hashes",
+    "new_queue_extension": "Postpublication descriptive capacity scenarios; ranking probabilities descending and source IDs ascending, floor(capacity*n); no new untouched holdout"
+  }
+}

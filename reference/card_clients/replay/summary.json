@@ -1,0 +1,144 @@
+{
+  "source": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+  "data_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "license": "CC BY 4.0; I-Cheng Yeh, UCI DOI10.24432/C55S3H",
+  "rows": 30000,
+  "features": [
+    "LIMIT_BAL",
+    "AGE",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6"
+  ],
+  "excluded": [
+    "EDUCATION",
+    "ID",
+    "MARRIAGE",
+    "SEX"
+  ],
+  "unique_model_input_groups": 29769,
+  "duplicate_input_rows": 231,
+  "partitions": {
+    "train": {
+      "rows": 18007,
+      "groups": 17861,
+      "defaults": 3964,
+      "default_rate": 0.2201366135391792
+    },
+    "calibration": {
+      "rows": 2992,
+      "groups": 2977,
+      "defaults": 680,
+      "default_rate": 0.22727272727272727
+    },
+    "policy_validation": {
+      "rows": 3000,
+      "groups": 2977,
+      "defaults": 697,
+      "default_rate": 0.23233333333333334
+    },
+    "test": {
+      "rows": 6001,
+      "groups": 5954,
+      "defaults": 1295,
+      "default_rate": 0.21579736710548242
+    }
+  },
+  "cross_partition_duplicate_groups": 0,
+  "models": {
+    "scorecard": {
+      "auc": 0.7814294410979494,
+      "brier": 0.13079395689440587,
+      "log_loss": 0.4217231939980833,
+      "threshold": 0.15,
+      "false_negative": 233,
+      "false_positive": 2157,
+      "accepted": 2782,
+      "cost_units": 3322,
+      "raw_test_brier": 0.1304849510318598
+    },
+    "challenger": {
+      "auc": 0.7896729222696074,
+      "brier": 0.13004212680966923,
+      "log_loss": 0.41747075353315677,
+      "threshold": 0.21,
+      "false_negative": 422,
+      "false_positive": 1177,
+      "accepted": 3951,
+      "cost_units": 3287,
+      "raw_test_brier": 0.12952336393849964
+    }
+  },
+  "calibration": {
+    "scorecard": {
+      "intercept": -0.042045662010433804,
+      "slope": 0.9249100674668138,
+      "validation_cost": 1753
+    },
+    "challenger": {
+      "intercept": -0.12477462153963595,
+      "slope": 0.8477441604629345,
+      "validation_cost": 1731
+    }
+  },
+  "paired_group_bootstrap_replicates": 2000,
+  "paired_uncertainty": {
+    "auc": {
+      "challenger_minus_scorecard": 0.008243481171657963,
+      "ci95": [
+        0.0005547242720492729,
+        0.016102248488503328
+      ]
+    },
+    "brier": {
+      "challenger_minus_scorecard": -0.0007518300847366262,
+      "ci95": [
+        -0.002190995223824507,
+        0.0006463746599174449
+      ]
+    },
+    "cost_per_client": {
+      "challenger_minus_scorecard": -0.005832361273121147,
+      "ci95": [
+        -0.032834429238985316,
+        0.019433444712621258
+      ]
+    }
+  },
+  "constant_policies": {
+    "accept_all_cost_units": 6475,
+    "reject_all_cost_units": 4706
+  },
+  "protocol_sha256": "7376e59998b3563fbddca17c4ab1cd9dde1e089118a62dcba42940aa126f1ce3",
+  "file_sha256": {
+    "partition_manifest.csv": "aea19b791d08c1c2c987efe404a77d4564ccd3f64bf3583c10d2ab98031600e2",
+    "holdout_predictions.csv": "e2c70c6f144a17b068d8b05a21641e80c01350c638afdac524a84f091d320dea",
+    "calibration_bins.csv": "fc032fd24968a4ae268bbec332ec3fc963981b947c5963f949cfbaf07007b4e8",
+    "group_audit.csv": "b71f198730b79caa3f26f37c61ce12010b161efe11131cee16e8d5748fc7972b"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0"
+  },
+  "scope": "Single Taiwan2005 cohort; monthly predictors precede next-month label, but random client-group holdout NOT out-of-time or multiyear generalization. Existing-client selection; no observed LGD/EAD or IFRS9 compliance.",
+  "uncertainty_scope": "Fixed fitted models and calibration/thresholds; group resampling does not include training/refit uncertainty.",
+  "fair_comparison": "Both models use identical 20 predictors and exactly the same training/calibration/policy-validation/test clients. No test-driven tuning. Separate preprocessing is part of each prespecified model."
+}

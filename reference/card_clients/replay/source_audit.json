@@ -1,0 +1,235 @@
+{
+  "rows": 30000,
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "feature_dtypes": {
+    "LIMIT_BAL": "int64",
+    "AGE": "int64",
+    "PAY_0": "int64",
+    "PAY_2": "int64",
+    "PAY_3": "int64",
+    "PAY_4": "int64",
+    "PAY_5": "int64",
+    "PAY_6": "int64",
+    "BILL_AMT1": "int64",
+    "BILL_AMT2": "int64",
+    "BILL_AMT3": "int64",
+    "BILL_AMT4": "int64",
+    "BILL_AMT5": "int64",
+    "BILL_AMT6": "int64",
+    "PAY_AMT1": "int64",
+    "PAY_AMT2": "int64",
+    "PAY_AMT3": "int64",
+    "PAY_AMT4": "int64",
+    "PAY_AMT5": "int64",
+    "PAY_AMT6": "int64"
+  },
+  "feature_ranges": {
+    "LIMIT_BAL": {
+      "min": 10000.0,
+      "max": 1000000.0
+    },
+    "AGE": {
+      "min": 21.0,
+      "max": 79.0
+    },
+    "PAY_0": {
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_2": {
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_3": {
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_4": {
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_5": {
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_6": {
+      "min": -2.0,
+      "max": 8.0
+    },
+    "BILL_AMT1": {
+      "min": -165580.0,
+      "max": 964511.0
+    },
+    "BILL_AMT2": {
+      "min": -69777.0,
+      "max": 983931.0
+    },
+    "BILL_AMT3": {
+      "min": -157264.0,
+      "max": 1664089.0
+    },
+    "BILL_AMT4": {
+      "min": -170000.0,
+      "max": 891586.0
+    },
+    "BILL_AMT5": {
+      "min": -81334.0,
+      "max": 927171.0
+    },
+    "BILL_AMT6": {
+      "min": -339603.0,
+      "max": 961664.0
+    },
+    "PAY_AMT1": {
+      "min": 0.0,
+      "max": 873552.0
+    },
+    "PAY_AMT2": {
+      "min": 0.0,
+      "max": 1684259.0
+    },
+    "PAY_AMT3": {
+      "min": 0.0,
+      "max": 896040.0
+    },
+    "PAY_AMT4": {
+      "min": 0.0,
+      "max": 621000.0
+    },
+    "PAY_AMT5": {
+      "min": 0.0,
+      "max": 426529.0
+    },
+    "PAY_AMT6": {
+      "min": 0.0,
+      "max": 528666.0
+    }
+  },
+  "category_counts": {
+    "PAY_0": {
+      "-2": 2759,
+      "-1": 5686,
+      "0": 14737,
+      "1": 3688,
+      "2": 2667,
+      "3": 322,
+      "4": 76,
+      "5": 26,
+      "6": 11,
+      "7": 9,
+      "8": 19
+    },
+    "PAY_2": {
+      "-2": 3782,
+      "-1": 6050,
+      "0": 15730,
+      "1": 28,
+      "2": 3927,
+      "3": 326,
+      "4": 99,
+      "5": 25,
+      "6": 12,
+      "7": 20,
+      "8": 1
+    },
+    "PAY_3": {
+      "-2": 4085,
+      "-1": 5938,
+      "0": 15764,
+      "1": 4,
+      "2": 3819,
+      "3": 240,
+      "4": 76,
+      "5": 21,
+      "6": 23,
+      "7": 27,
+      "8": 3
+    },
+    "PAY_4": {
+      "-2": 4348,
+      "-1": 5687,
+      "0": 16455,
+      "1": 2,
+      "2": 3159,
+      "3": 180,
+      "4": 69,
+      "5": 35,
+      "6": 5,
+      "7": 58,
+      "8": 2
+    },
+    "PAY_5": {
+      "-2": 4546,
+      "-1": 5539,
+      "0": 16947,
+      "2": 2626,
+      "3": 178,
+      "4": 84,
+      "5": 17,
+      "6": 4,
+      "7": 58,
+      "8": 1
+    },
+    "PAY_6": {
+      "-2": 4895,
+      "-1": 5740,
+      "0": 16286,
+      "2": 2766,
+      "3": 184,
+      "4": 49,
+      "5": 13,
+      "6": 19,
+      "7": 46,
+      "8": 2
+    },
+    "SEX": {
+      "1": 11888,
+      "2": 18112
+    },
+    "EDUCATION": {
+      "0": 14,
+      "1": 10585,
+      "2": 14030,
+      "3": 4917,
+      "4": 123,
+      "5": 280,
+      "6": 51
+    },
+    "MARRIAGE": {
+      "0": 54,
+      "1": 13659,
+      "2": 15964,
+      "3": 323
+    }
+  },
+  "unique_model_input_groups": 29769,
+  "duplicate_input_rows": 231,
+  "duplicate_groups": 166,
+  "label_discordant_duplicate_groups": 76,
+  "partitions": {
+    "train": {
+      "rows": 18007,
+      "groups": 17861,
+      "defaults": 3964
+    },
+    "calibration": {
+      "rows": 2992,
+      "groups": 2977,
+      "defaults": 680
+    },
+    "policy_validation": {
+      "rows": 3000,
+      "groups": 2977,
+      "defaults": 697
+    },
+    "test": {
+      "rows": 6001,
+      "groups": 5954,
+      "defaults": 1295
+    }
+  },
+  "population": "Existing Taiwan card clients in a single 2005 cohort",
+  "group_identity_limit": "Model-input hashes are grouping devices, not verified unique people",
+  "category_handling": "PAY status codes retained as categorical WoE inputs and numeric HGB inputs; sex, education, marital status and ID excluded from fitting; age retained; no fairness certification",
+  "out_of_time_validation": false
+}

@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-30T11:31:51.512570+00:00",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "protocol_sha256": "7376e59998b3563fbddca17c4ab1cd9dde1e089118a62dcba42940aa126f1ce3",
+  "implementation_sha256": {
+    "__init__.py": "42c2afc242281c94a4d915450a7a471a2a0de2fdf07e341dc3f8f43e4e34351b",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "fbf9b3481f4f97ae4d5dde0876309af2af0c25678d627a33bc57cd04d44134c1",
+    "constants.py": "2d455fa4ee5575b2576599c1e0348f22b53fac05ada503f7ac68c2b66daeb5ca",
+    "contracts.py": "aec43416664cb22103a218aa14cc1e496875bde03369c94ee0f89f9df73d4862",
+    "data.py": "00b0b49e757b85c62e5dbab771ee52cfd8aa06ebf86c06052a6da1f53e3fd1d3",
+    "evaluation.py": "4bd979153d4d0f0270a640d7194dff8d6472175b34f72c4d951a0fab3682ada8",
+    "models.py": "ec46a834adc033a137153de275f4be3f114fbef9336a50324d28f2ac89699e08",
+    "replay.py": "2048b98a61d2ce7c1ed7ebada3462a2dd57724cd0e8e5aed03946eabd72f9475",
+    "runtime.py": "402363a5da6b98f702fa9c65c0a01a0786d0e781adc5bc8edbed2a7a08aadd43",
+    "woe.py": "181cf4018e99ef43f33e4e01e60f942b3ec0e68bdcbfeab8d3ed5bac448a1299"
+  },
+  "native_thread_limit": 2,
+  "execution": "New full source read, original fixed model refits, calibration, validation threshold selection, predictions and 2000 group-bootstrap draws",
+  "evidence_status": "Numerical replay of previously published historical evidence; not a new untouched holdout or preregistered experiment",
+  "file_sha256": {
+    "calibration_bins.csv": "fc032fd24968a4ae268bbec332ec3fc963981b947c5963f949cfbaf07007b4e8",
+    "decision_queue.csv": "52dd78d8e6d06c6394813824f7e7357b81099318ab801a9c5497a8a6f85423a7",
+    "group_audit.csv": "b71f198730b79caa3f26f37c61ce12010b161efe11131cee16e8d5748fc7972b",
+    "holdout_predictions.csv": "e2c70c6f144a17b068d8b05a21641e80c01350c638afdac524a84f091d320dea",
+    "partition_manifest.csv": "aea19b791d08c1c2c987efe404a77d4564ccd3f64bf3583c10d2ab98031600e2",
+    "queue_assignments.csv": "e4e84de786ea1c3b571840acee23197824a2fcb7dcff62444cfe8e2dc06b58f7",
+    "queue_receipt.json": "684b8c26d2edd52fa249bc2d9b168d24bf78fc5a0900e2025648e192375e0fc4",
+    "source_audit.json": "57efa030cd7e99252789452a2867e053cc7e84f053dcdc79bda7a843a8c19c02",
+    "summary.json": "1e09b502b89f65464cd97d95965f2f519c11233ac0d86c5d9ac873f61924c7c7"
+  }
+}

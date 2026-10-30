@@ -1,0 +1,22 @@
+check,status,failures,detail
+balances_sql_population,pass,0,1960 observations; 56 distinct quarters; 35 metrics
+balances_python_sql_checksum,pass,0,"Independent in-memory and SQL sums of the first source metric agree; summing stocks is an integrity checksum, not an economic measure"
+originations_sql_population,pass,0,840 observations; 56 distinct quarters; 15 metrics
+originations_python_sql_checksum,pass,0,"Independent in-memory and SQL sums of the first source metric agree; summing stocks is an integrity checksum, not an economic measure"
+explicit_missingness,pass,0,"Exactly one source null: 2012Q3 credit-line-decrease share; preserved as NULL, never zero"
+accounts_cumulative_delinquency,pass,0,Cumulative 90+ <= 60+ <= 30+ shares; stages are not added
+balances_cumulative_delinquency,pass,0,Cumulative 90+ <= 60+ <= 30+ shares; stages are not added
+active_balance_percentile_order,pass,0,Ordered source percentiles within each quarter and population
+limit_percentile_order,pass,0,Ordered source percentiles within each quarter and population
+active_utilization_percentile_order,pass,0,Ordered source percentiles within each quarter and population
+score_percentile_order,pass,0,Ordered source percentiles within each quarter and population
+new_limit_percentile_order,pass,0,Ordered source percentiles within each quarter and population
+new_score_percentile_order,pass,0,Ordered source percentiles within each quarter and population
+payment_shares_partial_partition,pass,0,Reported payment categories need not total 100%; residual is not classified as nonpayment
+positive_ratio_denominators,pass,0,Derived averages and complementary-group calculations have valid denominators
+origination_group_reconciliation,pass,0,"Complementary original-score groups reconstruct total new accounts, commitments and account-weighted average initial limit"
+sqlite_integrity,pass,0,SQLite integrity_check
+sqlite_foreign_keys,pass,0,Metric and dataset references reconcile
+metric_dataset_lineage,pass,0,Each observation belongs to its metric's declared source dataset
+eligible_score_range,pass,0,Published score-percentile populations use eligible credit scores from 150 to 950
+sub660_average_limit_reconciliation,pass,0,SQL implied average opening limit agrees with independent Python calculation from rounded source aggregates

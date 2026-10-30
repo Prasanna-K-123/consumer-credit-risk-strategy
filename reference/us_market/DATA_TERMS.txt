@@ -1,0 +1,4 @@
+Research outputs derived from Federal Reserve Bank of Philadelphia public aggregate data.
+Source data and source-derived series are subject to the source terms; they are not covered by the software license.
+https://www.philadelphiafed.org/about-us/privacy-notice
+No Federal Reserve endorsement is implied.
